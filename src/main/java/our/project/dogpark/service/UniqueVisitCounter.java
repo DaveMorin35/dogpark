@@ -7,7 +7,7 @@ import our.project.dogpark.model.dog.Dog;
 import java.util.HashSet;
 import java.util.Set;
 
-public class UniqueVisitPark {
+public class UniqueVisitCounter {
     public int countUniqueVisit(Set<Visit> visits) {
 
         Set<Dog> dogs = new HashSet<>();
