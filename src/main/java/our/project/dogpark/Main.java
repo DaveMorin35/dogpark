@@ -2,6 +2,6 @@ package our.project.dogpark;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello World Vahe");
+        System.out.println("Hello World ");
     }
 }

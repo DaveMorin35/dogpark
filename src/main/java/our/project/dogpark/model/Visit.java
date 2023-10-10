@@ -10,9 +10,12 @@ public class Visit {
     private Playground playground;
     private LocalDateTime timestamp;
 
-    public Visit(String id, Dog dog, Playground playground, LocalDateTime timestamp) {
-
-    }
+        public Visit(String id, Dog dog, Playground playground, LocalDateTime timestamp) {
+            this.id = id;
+            this.dog = dog;
+            this.playground = playground;
+            this.timestamp = timestamp;
+        }
 
     public Visit(Dog dog) {
         this.dog = dog;
