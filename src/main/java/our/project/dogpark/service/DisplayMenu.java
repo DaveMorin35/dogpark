@@ -2,6 +2,7 @@ package our.project.dogpark.service;
 
 import our.project.dogpark.model.dog.Breed;
 import our.project.dogpark.model.dog.Dog;
+import our.project.dogpark.model.owner.Owner;
 
 import java.time.LocalTime;
 import java.util.Arrays;
@@ -39,9 +40,13 @@ public class DisplayMenu {
 
                     System.out.println("write the breed from the list please" + Arrays.toString(Breed.values()));
                     Breed breed = Breed.valueOf(scanner.nextLine());
+                    System.out.println("who is owner,write the name or noOwner");
+                    String ownerName = scanner.nextLine();
+                    Owner owner= new Owner( ownerName,ownerName+LocalTime.now().getSecond());
 
-                    Dog newDog = new Dog(dogName, id, breed);
+                    Dog newDog = new Dog(dogName, id, breed,owner);
                     System.out.println((newDog));
+
                     if (dogListManipulation.addDog(newDog)) {
                         System.out.println("new Dog is in the list added");
                     }
