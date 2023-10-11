@@ -1,7 +1,6 @@
 package our.project.dogpark.service;
 
 import our.project.dogpark.model.dog.Dog;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,14 +12,14 @@ public class DogListManipulation {
         dogs.add(dog);
     }
 
-    public boolean deleteDog(String name) {
+    public void deleteDog(String name) {
         Dog dogToRemove = null;
         for (Dog dog : dogs) {
             if (dog.name().equals(name)) {
                 dogToRemove = dog;
             }
         }
-       return  dogs.remove(dogToRemove);
+        dogs.remove(dogToRemove);
     }
 
     public List<Dog> getDogList() {

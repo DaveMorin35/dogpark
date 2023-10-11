@@ -1,7 +1,7 @@
 package our.project.dogpark.model.dog;
 
 public enum Breed {
-    Retriever, Bulldog, Beagle;
+    Retriever, Bulldog, Beagle,Husky;
 
 
 }

@@ -3,6 +3,7 @@ package our.project.dogpark.service;
 import our.project.dogpark.model.dog.Breed;
 import our.project.dogpark.model.dog.Dog;
 
+import java.time.LocalTime;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -43,8 +44,8 @@ public class DisplayMenu {
                     System.out.print("select dog name: ");
                     String dogName = scanner.nextLine();
                     System.out.println();
-                    System.out.print("select dog id:");
-                    String id = scanner.nextLine();
+
+                    String id = dogName+ LocalTime.now().getSecond();
                     System.out.println("breed from the list" + Arrays.toString(Breed.values()));
                     Breed breed = Breed.valueOf(scanner.nextLine());
                     Dog newDog = new Dog(dogName, id, breed);
