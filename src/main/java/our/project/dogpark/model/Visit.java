@@ -1,7 +1,6 @@
 package our.project.dogpark.model;
 
 import our.project.dogpark.model.dog.Dog;
-
 import java.time.LocalDateTime;
 
 public class Visit {

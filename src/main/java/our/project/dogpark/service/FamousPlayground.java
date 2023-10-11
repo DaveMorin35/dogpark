@@ -15,6 +15,7 @@ public class FamousPlayground {
         for (Visit visit : visits) {
             Playground playground = visit.getPlayground();
             countByPlaygroundName.put(playground, countByPlaygroundName.getOrDefault(playground, 0L) + 1);
+
         }
 
         Playground maxPlayground = null;

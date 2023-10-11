@@ -27,8 +27,8 @@ class UniqueVisitCounterTest {
 
         Visit v1 = new Visit("v1", dog1, playground1, LocalDateTime.now());
         Visit v2 = new Visit("v2", dog2, playground2, LocalDateTime.now());
-        Visit v3 = new Visit("v3", dog2, playground1, LocalDateTime.now());
-        Visit v4 = new Visit("v3", dog1, playground2, LocalDateTime.now());
+        Visit v3 = new Visit("v3", dog3, playground1, LocalDateTime.now());
+        Visit v4 = new Visit("v3", dog1, playground1, LocalDateTime.now());
 
         Set<Visit> visits = new HashSet<>();
         visits.add(v1);
@@ -36,7 +36,7 @@ class UniqueVisitCounterTest {
         visits.add(v3);
         visits.add(v4);
 
-        int uniqueDogsNumber = uniqueVisitCounter.countUniqueVisit(visits);
+        int uniqueDogsNumber = uniqueVisitCounter.countUniqueVisit(visits, playground1);
 
         Assertions.assertEquals(2,uniqueDogsNumber);
     }
