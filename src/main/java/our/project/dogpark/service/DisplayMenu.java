@@ -6,20 +6,16 @@ import our.project.dogpark.model.dog.Dog;
 import java.time.LocalTime;
 import java.util.Arrays;
 import java.util.Scanner;
-
 public class DisplayMenu {
     Scanner scanner = new Scanner(System.in);
-
+    DogListManipulation dogListManipulation = new DogListManipulation();
     private void displayMenuLines() {
-        System.out.println("1. visit list");
-        System.out.println("2 . show dog list");
-        System.out.println("3.add new dog");
-        System.out.println("4. delete dog");
+
+        System.out.println("1. show dog list");
+        System.out.println("2. add new dog");
+        System.out.println("3. delete dog");
         System.out.println("0. exit");
     }
-
-    DogListManipulation dogListManipulation = new DogListManipulation();
-
     public void displayMenu() {
 
         while (true) {
@@ -31,36 +27,35 @@ public class DisplayMenu {
                     return;
 
                 case 1:
-                    System.out.println("this a list");
-
-                    break;
-                case 2:
                     System.out.println("this is a dog list");
                     System.out.println(dogListManipulation.getDogList());
                     break;
-
-                case 3:
+                case 2:
                     scanner.nextLine();
                     System.out.print("select dog name: ");
                     String dogName = scanner.nextLine();
-                    System.out.println();
 
-                    String id = dogName+ LocalTime.now().getSecond();
-                    System.out.println("breed from the list" + Arrays.toString(Breed.values()));
+                    String id = dogName + LocalTime.now().getSecond();
+
+                    System.out.println("write the breed from the list please" + Arrays.toString(Breed.values()));
                     Breed breed = Breed.valueOf(scanner.nextLine());
+
                     Dog newDog = new Dog(dogName, id, breed);
                     System.out.println((newDog));
-                    dogListManipulation.addDog(newDog);
-
+                    if (dogListManipulation.addDog(newDog)) {
+                        System.out.println("new Dog is in the list added");
+                    }
                     break;
-
-                case 4:
+                case 3:
                     System.out.println("Dog name to delete:");
                     scanner.nextLine();
                     String name = scanner.nextLine();
-                    dogListManipulation.deleteDog(name);
+                    if(dogListManipulation.deleteDog(name)){
+                        System.out.println("dog "+name+" is deleted");
+                    }else {
+                        System.out.println("dog is not find");
+                    }
                     break;
-
                 default:
                     System.out.println("invalid input");
                     break;
