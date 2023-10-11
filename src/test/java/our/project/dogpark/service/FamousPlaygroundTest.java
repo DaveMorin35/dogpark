@@ -1,22 +1,30 @@
 package our.project.dogpark.service;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import our.project.dogpark.model.dog.Dog;
-import our.project.dogpark.model.dog.Breed;
 import our.project.dogpark.model.Playground;
+import our.project.dogpark.model.Visit;
+
+import java.util.HashSet;
+import java.util.Set;
 
 class FamousPlaygroundTest {
 
     @Test
     void findFamousPlayground() {
+        FamousPlayground famousPlayground = new FamousPlayground();
 
-        Dog dog1 = new Dog("Max", "1", Breed.Beagle);
-        Dog dog2 = new Dog("Bella", "2", Breed.Retriever);
-        Dog dog3 = new Dog("Tom", "3", Breed.Bulldog);
+        Visit visit = new Visit(new Playground("Park1", 50));
+        Visit visit1 = new Visit(new Playground("Park2", 100));
+        Visit visit2 = new Visit(new Playground("Park2", 100));
 
-        Playground playground1 = new Playground("Spartakus", 50);
-        Playground playground2 = new Playground("Suite", 20);
-        Playground playground3 = new Playground("Cat", 30);
+        Set<Visit> visits = new HashSet<>();
+
+        visits.add(visit);
+        visits.add(visit1);
+        visits.add(visit2);
+        Playground result = famousPlayground.findFamousPlayground(visits);
+
+        Assertions.assertEquals(new Playground("Park2", 100), result);
     }
 }
