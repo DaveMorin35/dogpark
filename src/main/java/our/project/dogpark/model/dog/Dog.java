@@ -1,4 +1,6 @@
 package our.project.dogpark.model.dog;
 
-public class Dog {
+import our.project.dogpark.model.owner.Owner;
+
+public record Dog(String name, String ID, Breed breed, Owner owner) {
 }
