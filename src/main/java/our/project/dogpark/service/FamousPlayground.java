@@ -6,11 +6,12 @@ import our.project.dogpark.model.Visit;
 
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
 public class FamousPlayground {
-    public Playground findFamousPlayground(Set<Visit> visits) {
+    public Playground findFamousPlayground(List<Visit> visits) {
         Map<Playground, Long> countByPlaygroundName = new HashMap<>();
         for (Visit visit : visits) {
             Playground playground = visit.getPlayground();

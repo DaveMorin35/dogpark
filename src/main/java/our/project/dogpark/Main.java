@@ -1,8 +1,8 @@
 package our.project.dogpark;
 
 import our.project.dogpark.model.dog.Breed;
-import our.project.dogpark.ui.AddDogUi;
 import our.project.dogpark.model.dog.addDog;
+import our.project.dogpark.ui.AddDogUi;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,8 +18,9 @@ public class Main {
 
     public static void main(String[] args) {
         List<addDog> dogList = new ArrayList<>(Arrays.asList(dogs));
-
         AddDogUi dogUi = new AddDogUi(dogList);
+
+
         dogUi.run();
     }
 }
