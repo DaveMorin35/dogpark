@@ -9,16 +9,13 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class UniqueVisitCounter {
-    public int countUniqueVisit(Set<Visit> visits, Playground playground) {
-
+    public long countUniqueVisit(Set<Visit> visits, Playground playground) {
         Set<Dog> dogs = new HashSet<>();
-        for (Visit visit : visits) {
-            if (visit.getPlayground().equals(playground)) {
-                Dog dog = visit.getDog();
-                dogs.add(dog);
-            }
+        return visits.stream()
+                .filter(visit -> visit.getPlayground().equals(playground))
+                .map(Visit::getDog)
+                .distinct()
+                .count();
 
-        }
-        return dogs.size();
     }
 }

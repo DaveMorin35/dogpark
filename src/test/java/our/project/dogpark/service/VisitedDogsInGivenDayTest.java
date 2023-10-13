@@ -44,7 +44,7 @@ class VisitedDogsInGivenDayTest {
         visits.add(v4);
         visits.add(v5);
 
-        int visitedDogsToday = visitedDogsInGivenDay.countVisitedDogsInGivenDay(visits, LocalDate.now());
+        long visitedDogsToday = visitedDogsInGivenDay.countVisitedDogsInGivenDay(visits, LocalDate.now());
 
         Assertions.assertEquals(1,visitedDogsToday);
     }

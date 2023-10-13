@@ -7,7 +7,7 @@ import our.project.dogpark.model.Visit;
 import java.util.*;
 
 public class FamousPlayground {
-    public Playground findFamousPlayground(Set<Visit> visits) {
+    public Optional<Playground> findFamousPlayground(Set<Visit> visits) {
 
         Map<Playground, Integer> countByPlaygroundName = new HashMap<>();
 
@@ -25,24 +25,7 @@ public class FamousPlayground {
                 .stream()
                 .max(Comparator.comparing(Map.Entry::getValue));
 
-       return maxPlaygroundPaar.get().getKey();
-
-//        for (Visit visit : visits) {
-//            Playground playground = visit.getPlayground();
-//            countByPlaygroundName.put(playground, countByPlaygroundName.getOrDefault(playground, 0L) + 1);
-//
-//        }
-//
-
-//        long maxValue = 0;
-//        for (Map.Entry<Playground, Long> pair : countByPlaygroundName.entrySet()) {
-//            if (pair.getValue() > maxValue) {
-//                maxValue = pair.getValue();
-//                maxPlayground = pair.getKey();
-//            }
-//        }
-
-
+        return maxPlaygroundPaar.map(Map.Entry::getKey);
     }
 }
 

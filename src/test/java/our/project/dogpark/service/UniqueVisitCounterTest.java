@@ -41,7 +41,7 @@ class UniqueVisitCounterTest {
         visits.add(v3);
         visits.add(v4);
 
-        int uniqueDogsNumber = uniqueVisitCounter.countUniqueVisit(visits, playground1);
+        long uniqueDogsNumber = uniqueVisitCounter.countUniqueVisit(visits, playground1);
 
         Assertions.assertEquals(2,uniqueDogsNumber);
     }

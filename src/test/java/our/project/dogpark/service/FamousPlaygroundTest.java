@@ -10,6 +10,7 @@ import our.project.dogpark.model.owner.Owner;
 
 import java.time.LocalDateTime;
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 class FamousPlaygroundTest {
@@ -41,9 +42,9 @@ class FamousPlaygroundTest {
         visits.add(v3);
         visits.add(v4);
 
-        Playground maxPlayground = famousPlayground.findFamousPlayground(visits);
+        Optional<Playground> maxPlayground = famousPlayground.findFamousPlayground(visits);
 
-        Assertions.assertEquals(playground1,maxPlayground);
+        Assertions.assertEquals(playground1,maxPlayground.orElseThrow());
 
 
     }
