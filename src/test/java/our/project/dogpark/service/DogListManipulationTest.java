@@ -7,13 +7,12 @@ import our.project.dogpark.model.dog.Dog;
 import our.project.dogpark.model.owner.Owner;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class DogListManipulationTest {
 
-    DogListManipulation dogListManipulation = new DogListManipulation();
+    DogListService dogListManipulation = new DogListService(new ArrayList<>());
 
     Dog dog1 = new Dog("Max", "1", Breed.RETRIEVER, new Owner("Dora", "d13"));
 
@@ -37,7 +36,7 @@ class DogListManipulationTest {
     void getDogList() {
         dogListManipulation.addDog(dog1);
 
-        List<Dog> result = dogListManipulation.getDogList();
+        Collection<Dog> result = dogListManipulation.getDogs();
         Assertions.assertTrue(result.contains(dog1));
     }
 }

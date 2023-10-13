@@ -47,7 +47,7 @@ class VisitServiceTest {
             visits.add(v3);
             visits.add(v4);
 
-            int result = visitService.getAllUniqueVisits(visits, playground1);
+            int result = visitService.getNumberOfDogsForPlayground(visits, playground1);
             Assertions.assertEquals(2,result);
         }
 

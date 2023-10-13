@@ -1,15 +1,23 @@
-package our.project.dogpark.service;
+package our.project.dogpark;
 
 import our.project.dogpark.model.dog.Breed;
 import our.project.dogpark.model.dog.Dog;
 import our.project.dogpark.model.owner.Owner;
+import our.project.dogpark.service.DogListService;
 
+import java.io.InputStream;
 import java.time.LocalTime;
 import java.util.Arrays;
 import java.util.Scanner;
-public class CommandLineInterfaceService {
-    Scanner scanner = new Scanner(System.in);
-    DogListManipulation dogListManipulation = new DogListManipulation();
+public class CommandLineInterface {
+    private final Scanner scanner;
+    private final DogListService dogListManipulation;
+
+    public CommandLineInterface(InputStream userInput, DogListService dogListManipulation) {
+        this.scanner = new Scanner(userInput);
+        this.dogListManipulation = dogListManipulation;
+    }
+
     private void displayMenuLines() {
         System.out.println("Welcome to the dog park! Please select an option:");
         System.out.println("1. show dog list");
@@ -29,7 +37,7 @@ public class CommandLineInterfaceService {
 
                 case 1:
                     System.out.println("List of dogs:");
-                    System.out.println(dogListManipulation.getDogList());
+                    System.out.println(dogListManipulation.getDogs());
                     break;
                 case 2:
                     scanner.nextLine();

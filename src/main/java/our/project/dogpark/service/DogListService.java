@@ -1,16 +1,19 @@
 package our.project.dogpark.service;
 
 import our.project.dogpark.model.dog.Dog;
-import java.util.ArrayList;
-import java.util.List;
 
-public class DogListManipulation {
-    ArrayList<Dog> dogs = new ArrayList<>();
+import java.util.Collection;
+
+public class DogListService {
+    private final Collection<Dog> dogs;
+
+    public DogListService(Collection<Dog> dogs) {
+        this.dogs = dogs;
+    }
 
 
     public boolean addDog(Dog dog) {
-        dogs.add(dog);
-        return true;
+        return dogs.add(dog);
     }
 
     public boolean deleteDog(String name) {
@@ -23,7 +26,7 @@ public class DogListManipulation {
         return dogs.remove(dogToRemove);
     }
 
-    public List<Dog> getDogList() {
+    public Collection<Dog> getDogs() {
         return dogs;
     }
 }
