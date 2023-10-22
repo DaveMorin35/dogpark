@@ -36,7 +36,7 @@ public class AddDogUi {
     }
 
     private static void displayWelcomeMessage() {
-        System.out.println("Welcome to Dogpark!");
+        System.out.println("Welcome to Dog park!");
         System.out.println("Please make your choice");
     }
 

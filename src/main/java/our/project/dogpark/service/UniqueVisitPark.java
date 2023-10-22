@@ -18,12 +18,5 @@ public class UniqueVisitPark {
 
         return dogs.size();
     }
-
 }
 
-//for (Visit visit : visits) {
-//  Dog dog = visit.getDog();
-//dogs.add(dog);
-//}
-//return dogs.size();
-//}
