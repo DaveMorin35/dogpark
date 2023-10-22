@@ -3,12 +3,15 @@ package our.project.dogpark.model.owner;
 import java.util.Objects;
 
 public class Owner {
+
     private final String name;
     private final String id;
+
     public Owner(String name, String id) {
         this.name = name;
         this.id = id;
     }
+
 
     @Override
     public boolean equals(Object o) {

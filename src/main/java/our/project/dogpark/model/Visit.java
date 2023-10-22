@@ -1,7 +1,6 @@
 package our.project.dogpark.model;
 
 import our.project.dogpark.model.dog.Dog;
-
 import java.time.LocalDateTime;
 
 public class Visit {
@@ -10,9 +9,12 @@ public class Visit {
     private Playground playground;
     private LocalDateTime timestamp;
 
-    public Visit(String id, Dog dog, Playground playground, LocalDateTime timestamp) {
-
-    }
+        public Visit(String id, Dog dog, Playground playground, LocalDateTime timestamp) {
+            this.id = id;
+            this.dog = dog;
+            this.playground = playground;
+            this.timestamp = timestamp;
+        }
 
     public Visit(Dog dog) {
         this.dog = dog;

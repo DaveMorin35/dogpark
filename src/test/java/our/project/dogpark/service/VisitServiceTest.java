@@ -20,9 +20,9 @@ class VisitServiceTest {
     Owner owner2 = new Owner("Dave","d1");
     Owner owner3 = new Owner("Dora","d2");
 
-    Dog dog1 = new Dog("Max", "1", Breed.BEAGLE, owner3);
-    Dog dog2 = new Dog("Bella", "2", Breed.RETRIEVER, owner2);
-    Dog dog3 = new Dog("Tom", "3", Breed.BULLDOG, owner1);
+    Dog dog1 = new Dog("Max", "1", Breed.Beagle, owner3);
+    Dog dog2 = new Dog("Bella", "2", Breed.Retriever, owner2);
+    Dog dog3 = new Dog("Tom", "3", Breed.Bulldog, owner1);
 
     Playground playground1 = new Playground("Spartakus", 50);
     Playground playground2 = new Playground("Suite", 20);
@@ -47,7 +47,7 @@ class VisitServiceTest {
             visits.add(v3);
             visits.add(v4);
 
-            int result = visitService.getNumberOfDogsForPlayground(visits, playground1);
+            int result = visitService.getAllUniqueVisits(visits, playground1);
             Assertions.assertEquals(2,result);
         }
 

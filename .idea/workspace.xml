@@ -63,7 +63,7 @@
       <recent name="our.project.dogpark" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.VisitServiceTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="our.project.dogpark.Main" />
       <module name="dogpark" />
@@ -124,8 +124,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="VisitServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="dogpark" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="our.project.dogpark.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="our.project.dogpark.service" />
+      <option name="MAIN_CLASS_NAME" value="our.project.dogpark.service.VisitServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.VisitServiceTest" />
         <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.FamousPlaygroundTest" />
         <item itemvalue="JUnit.FamousPlaygroundTest.findFamousPlayground" />
