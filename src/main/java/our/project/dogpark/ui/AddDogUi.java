@@ -1,19 +1,20 @@
 package our.project.dogpark.ui;
 
 import our.project.dogpark.model.dog.Breed;
-import our.project.dogpark.model.dog.addDog;
-import our.project.dogpark.service.addDogToTheList;
+import our.project.dogpark.model.dog.Dog;
+import our.project.dogpark.model.owner.Owner;
+import our.project.dogpark.service.DogListService;
 
-import java.util.List;
+import java.time.LocalTime;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class AddDogUi {
-    private final List<addDog> library;
+    private final DogListService dogListManipulation;
 
-    public AddDogUi(List<addDog> library) {
-        this.library = library;
+    public AddDogUi(DogListService dogListManipulation) {
+        this.dogListManipulation = dogListManipulation;
     }
-
 
     public void run() {
         displayWelcomeMessage();
@@ -24,13 +25,12 @@ public class AddDogUi {
             displayMenu();
             code = getCode();
 
-
             switch (code) {
                 case 1 -> addDog();
                 case 2 -> deleteDog();
                 case 3 -> modifiedDog();
                 case 4 -> showList();
-
+                case 5 -> invalidInput();
             }
         }
     }
@@ -56,38 +56,53 @@ public class AddDogUi {
     private void addDog() {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Enter the name of the dog");
+        System.out.print("Please add your dogs name: ");
         String dogName = scanner.nextLine();
 
-        System.out.println("Enter a id for the dog");
-        String dogId = scanner.nextLine();
+        String id = dogName + LocalTime.now().getSecond();
 
-        System.out.println("Choose a breed for the dog between Retriever, Bulldog or Beagle. Enter the Breed please");
-        String dogBreed = scanner.nextLine();
+        System.out.println("select the breed" + Arrays.toString(Breed.values()));
+        Breed breed = Breed.valueOf(scanner.nextLine());
 
-        try {
-            Breed breed = Breed.valueOf(dogBreed);
-            addDogToTheList.addDogToList(library, dogName, dogId, breed);
-            System.out.println("dog add to the list");
-        } catch (IllegalArgumentException e) {
-            System.out.println("Invalid breed. Please choose from Retriever, Bulldog, or Beagle.");
+        System.out.println("add an owner:");
+        String ownerName = scanner.nextLine();
+        Owner owner = new Owner(ownerName, ownerName + LocalTime.now().getSecond());
+
+        Dog newDog = new Dog(dogName, id, breed, owner);
+        System.out.println((newDog));
+
+        if (dogListManipulation.addDog(newDog)) {
+            System.out.println("Your dog is added to the list");
+        } else {
+            System.out.println("We couldn't add your dog to the list");
         }
     }
 
     private void deleteDog() {
         Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Add dog name to delete:");
+        scanner.nextLine();
+        String name = scanner.nextLine();
+        if (dogListManipulation.deleteDog(name)) {
+            System.out.println(name + " is deleted from the list of dogs");
+        } else {
+            System.out.println("it looks like this dog is not in the list");
+        }
     }
 
     private void modifiedDog() {
         Scanner scanner = new Scanner(System.in);
     }
 
-    private void showList(){
-        for (addDog dog : library){
-            System.out.println(dog);
-        }
+    private void showList() {
+        System.out.println("List of dogs:");
+        System.out.println(dogListManipulation.getDogs());
     }
 
+    private void invalidInput() {
+        System.out.println("Invalid inout");
 
+    }
 }
 
